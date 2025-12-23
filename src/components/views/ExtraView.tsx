@@ -27,21 +27,21 @@ export const ExtraView: React.FC<ExtraViewProps> = ({
 
   return (
     <div className="pb-20">
-      <div className={`p-4 md:p-6 border-b border-${theme.colors.border}`}>
+      <div className={`p-4 md:p-6 border-b ${theme.colors.border}`}>
         <h1 className="text-2xl md:text-3xl font-light">Extra Class</h1>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-6">
         <div className={`${getCardClass()} mb-6`}>
           <label
-            className={`block text-xs text-${theme.colors.textMuted} mb-2 uppercase tracking-widest`}
+            className={`block text-xs ${theme.colors.textMuted} mb-2 uppercase tracking-widest`}
           >
             Select Class to Log
           </label>
           <select
             value={selectedClassId}
             onChange={(e) => setSelectedClassId(Number(e.target.value))}
-            className={`w-full bg-${theme.colors.background} border border-${theme.colors.border} p-3 text-sm focus:outline-none text-${theme.colors.text}`}
+            className={`w-full ${theme.colors.background} border border-rose-300 p-3 text-sm rounded-2xl focus:outline-none ${theme.colors.text}`}
           >
             <option value="">-- Choose a Class --</option>
             {classes.map((cls) => (
@@ -64,14 +64,12 @@ export const ExtraView: React.FC<ExtraViewProps> = ({
                 markAttendance(selectedClass.id, status)
               }
             />
-            <p
-              className={`mt-4 text-xs text-center text-${theme.colors.textMuted}`}
-            >
+            <p className={`mt-4 text-xs text-center ${theme.colors.textMuted}`}>
               Marking an extra class adds it to today's attendance records.
             </p>
           </div>
         ) : (
-          <div className={`text-center py-20 text-${theme.colors.textMuted}`}>
+          <div className={`text-center py-20 ${theme.colors.textMuted}`}>
             <PlusCircle size={40} className="mx-auto mb-4 opacity-20" />
             <p>Pick a class above to log an unscheduled session</p>
           </div>

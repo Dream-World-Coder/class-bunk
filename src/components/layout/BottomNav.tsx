@@ -14,7 +14,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 ${theme.colors.background} border-t border-[#666]`}
+      className={`fixed bottom-0 left-0 right-0 ${theme.colors.background} border-t border-[#c5c2c2]`}
     >
       <div className="max-w-4xl mx-auto flex">
         {/* today */}

@@ -39,9 +39,11 @@ export const TodayView: React.FC<TodayViewProps> = ({
 
   return (
     <div className="pb-20">
-      <div className={`p-4 md:p-6 border-b ${theme.colors.border}`}>
-        {/*logo*/}
-        <h1 className="text-2xl md:text-3xl font-light">Class Bunk</h1>
+      <div
+        className={`p-4 md:p-6 flex justify-start items-center gap-2 border-b border-[#c5c2c2]`}
+      >
+        <img className="size-7" src="/favicon.svg" alt="" />
+        <h1 className="text-2xl md:text-3xl font-light">BunkHelp</h1>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
@@ -55,7 +57,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
 
         {todaysClasses.length === 0 ? (
           <div className={`text-center py-16 ${theme.colors.textMuted}`}>
-            <img src="/blossom.svg" className="mx-auto max-w-64 max-h-64" />
+            <img src="/fuji.svg" className="mx-auto max-w-64 max-h-64" />
             <p className="mb-2">No classes scheduled for {currentDay}</p>
             <button
               onClick={() => setCurrentView("schedule")}

@@ -33,19 +33,19 @@ export const ClassCard: React.FC<ClassCardProps> = ({
       <div className="grid grid-cols-3 gap-2">
         <button
           onClick={() => onMarkAttendance("present")}
-          className={`${getButtonClass(status === "present")} rounded-xl`}
+          className={`${getButtonClass(status === "present")}`}
         >
           Present
         </button>
         <button
           onClick={() => onMarkAttendance("absent")}
-          className={`${getButtonClass(status === "absent")} rounded-xl`}
+          className={`${getButtonClass(status === "absent")}`}
         >
           Absent
         </button>
         <button
           onClick={() => onMarkAttendance("noclass")}
-          className={`${getButtonClass(status === "noclass")} rounded-xl`}
+          className={`${getButtonClass(status === "noclass")}`}
         >
           No Class
         </button>

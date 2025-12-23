@@ -81,7 +81,7 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
         ) : (
           <button
             onClick={() => setShowAddClass(true)}
-            className={`w-full py-3 border rounded-4xl ${theme.colors.border} bg-green-200 transition flex items-center justify-center gap-2 text-sm mb-6`}
+            className={`w-full py-3 border rounded-4xl ${theme.colors.border} bg-rose-200 transition flex items-center justify-center gap-2 text-sm mb-6`}
           >
             <Plus size={18} />
             Add New Class
@@ -108,10 +108,10 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
                     <button
                       key={cls.id}
                       onClick={() => toggleClassInSchedule(day, cls.id)}
-                      className={`w-full px-3 py-2 text-sm border transition text-center rounded-lg ${
+                      className={`w-full px-3 py-2 text-sm border transition text-center rounded-2xl ${
                         schedule[day]?.includes(cls.id)
-                          ? `${theme.colors.active.bg} ${theme.colors.active.text} ${theme.colors.border}`
-                          : `${theme.colors.border}`
+                          ? `${theme.colors.active.bg} ${theme.colors.active.text}`
+                          : `border-[#c5c2c2]`
                       }`}
                     >
                       {cls.name}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { theme } from "../../theme";
 
 interface DateSelectorProps {
@@ -27,11 +27,11 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
 
   return (
     <div
-      className={`flex items-center justify-between p-3 mb-6 border border-[#f5f2f2] bg-[#f5f2f2]/40 rounded-4xl`}
+      className={`flex items-center justify-between p-3 mb-6 border border-[#c5c2c2] __border-transparent bg-transparent/40 rounded-4xl`}
     >
       <button
         onClick={onPrevDay}
-        className={`p-2 rounded-full ${theme.colors.primary}`}
+        className={`p-2 rounded-full border border-rose-500 bg-rose-500 text-white`}
       >
         <ChevronLeft size={20} />
       </button>
@@ -39,7 +39,6 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
         onClick={onCalendarClick}
         className={`flex items-center gap-2 hover:${theme.colors.textMuted} transition`}
       >
-        <Calendar size={18} />
         <div className="text-center">
           <div className="text-sm md:text-base">{formatDate(selectedDate)}</div>
           <div className={`text-xs ${theme.colors.textMuted}`}>
@@ -49,7 +48,7 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
       </button>
       <button
         onClick={onNextDay}
-        className={`p-2 rounded-full ${theme.colors.primary}`}
+        className={`p-2 rounded-full border border-rose-500 bg-rose-500 text-white`}
       >
         <ChevronRight size={20} />
       </button>
