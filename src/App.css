@@ -1,0 +1,5 @@
+body,
+html {
+  overscroll-behavior-y: contain;
+  user-select: none;
+}
