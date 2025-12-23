@@ -1,23 +1,22 @@
-const CACHE = "bunk-v1";
-const ASSETS = ["/", "/index.html", "/src/main.tsx", "/manifest.json"];
-
 importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js",
 );
 
+const CACHE_NAME = "bunk-v2";
+
+// Handle updates
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });
 
-self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));
-});
-
+// Cache strategy for all requests
 workbox.routing.registerRoute(
-  new RegExp("/*"),
+  ({ request }) =>
+    request.mode === "navigate" ||
+    ASSETS.includes(new URL(request.url).pathname),
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE,
+    cacheName: CACHE_NAME,
   }),
 );
