@@ -2,7 +2,7 @@ importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js",
 );
 
-const CACHE_NAME = "bunk-v2";
+const CACHE_NAME = "bunk-v1";
 
 // Handle updates
 self.addEventListener("message", (event) => {
