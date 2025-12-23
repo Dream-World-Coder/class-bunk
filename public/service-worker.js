@@ -1,18 +1,23 @@
-const CACHE_NAME = "bunk-v1";
-const ASSETS = [
-  "/",
-  "/index.html",
-  "/src/main.tsx",
-  "/manifest.json",
-  "/icons/favicon-192x192.png",
-  "/assets/index-6bEIhMr7.css",
-  "/assets/index-DM2CDA_E.js",
-];
+const CACHE = "bunk-v1";
+const ASSETS = ["/", "/index.html", "/src/main.tsx", "/manifest.json"];
+
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js",
+);
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
+  e.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));
 });
 
-self.addEventListener("fetch", (e) => {
-  e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
-});
+workbox.routing.registerRoute(
+  new RegExp("/*"),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE,
+  }),
+);
